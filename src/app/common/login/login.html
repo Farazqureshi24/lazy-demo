@@ -1,0 +1,33 @@
+<div class="login-wrapper">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2>Login</h2>
+
+    <div class="form-control">
+      <label>Username</label>
+      <input
+        type="text"
+        formControlName="username"
+        [class.error]="displayError('username')"
+        placeholder="Enter your username"
+      />
+      <span class="error-msg" *ngIf="displayError('username')">
+        {{ getError('username') }}
+      </span>
+    </div>
+
+    <div class="form-control">
+      <label>Password</label>
+      <input
+        type="password"
+        formControlName="password"
+        [class.error]="displayError('password')"
+        placeholder="Enter your password"
+      />
+      <span class="error-msg" *ngIf="displayError('password')">
+        {{ getError('password') }}
+      </span>
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>

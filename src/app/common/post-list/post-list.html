@@ -1,0 +1,7 @@
+<div *ngIf="loading$ | async">Loading...</div>
+
+<ul>
+  @for (item of departments$ | async ; track  $index) {
+    <li>{{ item.departmentName }}</li>
+  }
+</ul>
